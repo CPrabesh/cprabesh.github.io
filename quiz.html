@@ -29,5 +29,178 @@
   </nav>
 </div>
 
+<section class="wrapper">
+  <div class="quiz-container">
+    <h3 style="text-align: center">Web Browser Assessment</h3>
+    <p style="text-align: center; margin-bottom: 30px;">See how much you remember from the History and Future sections!</p>
+
+    <form id="browserQuiz">
+
+      <div class="question-block">
+        <label class="question-text">1. The part of the browser that takes HTML and CSS code and turns it into a visual page is called the __________ Engine.</label>
+        <input type="text" id="q1" class="text-input" placeholder="Type your answer here...">
+        <div id="feedback-q1" class="feedback"></div>
+      </div>
+
+      <div class="question-block">
+        <label class="question-text">2. Which browser was the first to show images "inline" (on the same page as text) in 1993?</label>
+        <label class="options-label"><input type="radio" name="q2" value="WorldWideWeb"> WorldWideWeb</label>
+        <label class="options-label"><input type="radio" name="q2" value="Mosaic"> NCSA Mosaic</label>
+        <label class="options-label"><input type="radio" name="q2" value="Netscape"> Netscape Navigator</label>
+        <label class="options-label"><input type="radio" name="q2" value="IE"> Internet Explorer</label>
+        <div id="feedback-q2" class="feedback"></div>
+      </div>
+
+      <div class="question-block">
+        <label class="question-text">3. What is the name of Google Chrome's JavaScript Interpreter?</label>
+        <label class="options-label"><input type="radio" name="q3" value="Gecko"> Gecko</label>
+        <label class="options-label"><input type="radio" name="q3" value="SpiderMonkey"> SpiderMonkey</label>
+        <label class="options-label"><input type="radio" name="q3" value="V8"> V8</label>
+        <label class="options-label"><input type="radio" name="q3" value="WebKit"> WebKit</label>
+        <div id="feedback-q3" class="feedback"></div>
+      </div>
+
+      <div class="question-block">
+        <label class="question-text">4. What technology allows modern browsers to run complex code (like C++ or Rust) at near-native desktop speeds?</label>
+        <label class="options-label"><input type="radio" name="q4" value="WebAssembly"> WebAssembly (Wasm)</label>
+        <label class="options-label"><input type="radio" name="q4" value="WebGPU"> WebGPU</label>
+        <label class="options-label"><input type="radio" name="q4" value="Sandboxing"> Sandboxing</label>
+        <label class="options-label"><input type="radio" name="q4" value="CSSOM"> CSSOM</label>
+        <div id="feedback-q4" class="feedback"></div>
+      </div>
+
+      <div class="question-block">
+        <label class="question-text">5. Which of the following browsers are built using the Chromium engine today? (Select all that apply)</label>
+        <label class="options-label"><input type="checkbox" name="q5" value="Chrome"> Google Chrome</label>
+        <label class="options-label"><input type="checkbox" name="q5" value="Edge"> Microsoft Edge</label>
+        <label class="options-label"><input type="checkbox" name="q5" value="Safari"> Apple Safari</label>
+        <label class="options-label"><input type="checkbox" name="q5" value="Firefox"> Mozilla Firefox</label>
+        <div id="feedback-q5" class="feedback"></div>
+      </div>
+
+      <div>
+        <button type="button" class="btn btn-submit" onclick="gradeQuiz()">Submit Quiz</button>
+        <button type="reset" class="btn btn-reset" onclick="resetQuiz()">Retake / Reset</button>
+      </div>
+
+      <div id="overallResults"></div>
+
+    </form>
+  </div>
+</section>
+
+<script>
+  // Main function to check answers and add up the score
+  function gradeQuiz() {
+    let totalScore = 0;
+    const maxScore = 5;
+
+    //General function
+    function setFeedback(elementId, isCorrect, correctText, scoreAwarded) {
+      const feedbackDiv = document.getElementById(elementId);
+      feedbackDiv.style.display = "block";
+
+      if (isCorrect) {
+        feedbackDiv.className = "feedback correct-text";
+        feedbackDiv.innerHTML = `<strong>Correct!</strong> (+${scoreAwarded} point) <br> Answer: ${correctText}`;
+      } else {
+        feedbackDiv.className = "feedback incorrect-text";
+        feedbackDiv.innerHTML = `<strong>Incorrect.</strong> (+0 points) <br> The correct answer was: ${correctText}`;
+      }
+    }
+
+    // Q1: Checking if they typed "rendering" or "layout" (converting to lowercase first just in case they use caps)
+    const q1Ans = document.getElementById("q1").value.trim().toLowerCase();
+    if (q1Ans === "rendering" || q1Ans === "layout") {
+      totalScore++;
+      setFeedback("feedback-q1", true, "Rendering (or Layout)", 1);
+    } else {
+      setFeedback("feedback-q1", false, "Rendering (or Layout)", 0);
+    }
+
+    // Q2: Multiple Choice 1 (Mosaic)
+    const q2Ans = document.querySelector('input[name="q2"]:checked');
+    if (q2Ans && q2Ans.value === "Mosaic") {
+      totalScore++;
+      setFeedback("feedback-q2", true, "NCSA Mosaic", 1);
+    } else {
+      setFeedback("feedback-q2", false, "NCSA Mosaic", 0);
+    }
+
+    // Q3: Multiple Choice 2 (V8)
+    const q3Ans = document.querySelector('input[name="q3"]:checked');
+    if (q3Ans && q3Ans.value === "V8") {
+      totalScore++;
+      setFeedback("feedback-q3", true, "V8", 1);
+    } else {
+      setFeedback("feedback-q3", false, "V8", 0);
+    }
+
+    // Q4: Multiple Choice 3 (WebAssembly)
+    const q4Ans = document.querySelector('input[name="q4"]:checked');
+    if (q4Ans && q4Ans.value === "WebAssembly") {
+      totalScore++;
+      setFeedback("feedback-q4", true, "WebAssembly (Wasm)", 1);
+    } else {
+      setFeedback("feedback-q4", false, "WebAssembly (Wasm)", 0);
+    }
+
+    // Q5: The tricky one. They have to select Chrome AND Edge, but nothing else.
+    const q5Boxes = document.querySelectorAll('input[name="q5"]');
+    let q5CorrectCount = 0;
+    let q5WrongSelected = false;
+
+    // Loop through checkboxes to see what they picked
+    q5Boxes.forEach(box => {
+      if (box.checked) {
+        if (box.value === "Chrome" || box.value === "Edge") {
+          q5CorrectCount++;
+        } else {
+          q5WrongSelected = true; // They picked Safari or Firefox
+        }
+      }
+    });
+
+    // make sure they don't get points if they select the right ones PLUS a wrong one
+    if (q5CorrectCount === 2 && !q5WrongSelected) {
+      totalScore++;
+      setFeedback("feedback-q5", true, "Google Chrome AND Microsoft Edge", 1);
+    } else {
+      setFeedback("feedback-q5", false, "Google Chrome AND Microsoft Edge", 0);
+    }
+
+    // Calculate Overall Results
+    const resultsDiv = document.getElementById("overallResults");
+    resultsDiv.style.display = "block";
+
+    // Pass at 60% (3 out of 5)
+    if (totalScore >= 3) {
+      resultsDiv.className = "correct-text";
+      resultsDiv.innerHTML = `Congratulations, you Passed! <br> Final Score: ${totalScore} / ${maxScore}`;
+    } else {
+      resultsDiv.className = "incorrect-text";
+      resultsDiv.innerHTML = `Result: Failed. Better luck next time! <br> Final Score: ${totalScore} / ${maxScore}`;
+    }
+  }
+
+  // Clearing out the feedback and score when they hit reset
+  function resetQuiz() {
+    // Hide the overall results
+    const resultsDiv = document.getElementById("overallResults");
+    resultsDiv.style.display = "none";
+    resultsDiv.innerHTML = "";
+
+    // Hide all the individual feedback boxes
+    const feedbackDivs = document.querySelectorAll('.feedback');
+    feedbackDivs.forEach(div => {
+      div.style.display = "none";
+      div.innerHTML = "";
+    });
+  }
+</script>
+
 </body>
+<footer>
+  <p>This website is a class project for the <a href="https://ksuweb.github.io/IT3203/">Kennesaw State University IT 3203 course.</a></p>
+</footer>
 </html>

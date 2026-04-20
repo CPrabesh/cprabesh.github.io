@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
-  <title>Portfolio</title>
+  <title>History</title>
 </head>
 <body>
 <!--Title-->
@@ -29,5 +29,89 @@
   </nav>
 </div>
 
+<section class="wrapper">
+  <h3 style="text-align: center">What is a Web Browser?</h3>
+  <p>People talk about "going on the internet," but they are usually just referring to opening an app on their phone
+    or clicking a colorful icon on their laptop. That icon is the web browser, and it is arguably one of the most
+    important pieces of software ever made. While we take it for granted now, the browser is actually a very complex
+    technical component that has changed a lot since the early 1900s. It’s basically a translator that turns a bunch of
+    computer code (0s and 1s) into something pretty and clickable. This deep dive into web browsers will look at how
+    they work, where they come from, and where they are going in the future.</p>
+
+  <p>A web browser is technically a software application for accessing information on the World Wide Web. Its main job
+    is to retrieve content from a server and then render or process it, so people can visualize the machine code.
+    When you type a URL, the browsers talk to a server using protocols like HTTP or the newer, faster HTTP/3. This
+    process is more than just downloading a file; it’s a constant back-and-forth of requests and responses. As noted
+    in recent technical documentation, "The primary purpose of a web browser is to bring information resources to the
+    user, allowing them to view and interact with content on the World Wide Web."</p>
+
+  <p>The most important part of the browser is the Rendering Engine (sometimes called a layout engine). This is the part
+    that takes HTML and CSS code and turns it into a visual page. Different browsers use different engines:
+    Google Chrome and Microsoft Edge use Blink, Safari uses WebKit, and Firefox uses Gecko. These engines aren't
+    identical; therefore, a website might look slightly different depending on which one you use.</p>
+
+  <p>Inside the browser, there is also a JavaScript Interpreter (like Chrome's V8 engine) that handles all the
+    interactive parts of a site. In describing this architecture, experts explain that "The rendering engine is
+    responsible for displaying the requested content on the browser screen." The engine has to parse the HTML to
+    create what is called the Document Object Model (DOM). This is basically a tree-like structure of the page.
+    Then it parses the CSS to create the CSSOM. When you put those together, you get the "Render Tree," which tells
+    the browser exactly where every pixel should go. In a nutshell, it is a lot of math happening in mere milliseconds.
+  </p>
+</section>
+
+<div class="parallax"></div>
+
+<section class="wrapper">
+  <h3 style="text-align: center">Origins and The Browser Wars</h3>
+
+  <p>The first browser was created by Tim Berners-Lee in 1990 at CERN. It was called the "WorldWideWeb," but he renamed
+    it to Nexus so people wouldn't get confused between the app and the actual web. It wasn't very user-friendly because
+    it only worked on specific NeXT computers. As history records, "The first web browser... was also an editor, which
+    meant it could be used to create and update web pages as well as view them."</p>
+
+
+  <p>The real "big bang" for browsers happened in 1993 with NCSA Mosaic. Before Mosaic, the web was mostly just boring
+    text. Mosaic was the first to show images "inline" (on the same page as the text), which made the internet much
+    more interesting. The lead developer, Marc Andreessen, eventually left to start Netscape Navigator, which dominated
+    with about 90% market share at the time. This period was pivotal because it was the first browser to become widely
+    used, and it helped to popularize the World Wide Web.</p>
+
+  <p>Then came the "First Browser War." Microsoft saw how big the web was getting and decided they wanted in.
+    They bundled Internet Explorer (IE) with Windows for free. Since everyone already had Windows, they just used
+    IE because it was already there. Like how Apple has Safari and most people tend to use it instead of downloading
+    a separate application. This basically killed Netscape, which was a paid product for a while. However, the remains
+    of Netscape became the Mozilla project, which eventually gave us Firefox in 2004. Firefox was huge because it
+    introduced "tabbed browsing" to the mainstream, so you didn't have to have fifty windows open at once.</p>
+
+  <p>In 2008, Google released Chrome, which focused on being fast and simple. Analysts note that "Chrome’s release in
+    2008 shifted the balance of power yet again, emphasizing speed and a minimalist design." Chrome was built on the
+    open-source Chromium project, which has become so dominant that even Microsoft gave up on their own engine and
+    rebuilt Edge (IE’s successor) using Chromium.</p>
+</section>
+
+<div class="parallax"></div>
+
+<section class="wrapper">
+  <h3 style="text-align: center">Current Day (2026)</h3>
+  <p>This leads us to current day browsers in 2026. Almost every browser except Firefox and Safari is now running
+    on Chromium. This is great for developers because they only have to make sure their site works on one
+    engine, but it's kind of bad for competition. If Google decides to change how the engine works,
+    everyone else has to follow.</p>
+
+  <p>Browsers today aren't just for looking at funny cat videos; they handle a variety of tasks from our bank accounts
+    to private messages. This is where things like Sandboxing and HTTPS come in. Sandboxing means that each tab you
+    have open is isolated from the others. If one site has a virus, it (theoretically) can't jump over and steal your
+    passwords from another tab.</p>
+
+  <p>Privacy has also become a huge selling point. Browsers like Brave and DuckDuckGo have gained users who don't
+    want to be tracked by advertisers. Even the big players are changing. Google’s Privacy Sandbox is an attempt to
+    replace old tracking cookies with newer, more private ways for ads to work. Recent statistics show that
+    "Browser choices are increasingly being driven by concerns over data privacy and the integration of native AI features."
+    We are seeing a move away from "third-party cookies" which used to follow you around the web tracking you.</p>
+</section>
 </body>
+
+<footer>
+  <p>This website is a class project for the <a href="https://ksuweb.github.io/IT3203/">Kennesaw State University IT 3203 course.</a></p>
+</footer>
 </html>
