@@ -7,18 +7,11 @@
   <title>Quiz</title>
 </head>
 <body>
-<!--Title-->
-<div>
-  <header>
-    <h1>Quiz</h1>
-    <h3>Prabesh Chhetri - IT 3203</h3>
-  </header>
-</div>
-
-<!--Navigation-->
-<div>
-  <nav id="nav">
-    <ul>
+<!--Title & Navigation-->
+<div id="nav">
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776; Menu</div>
+    <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="history.html">History</a></li>
       <li><a href="future.html">Future</a></li>
@@ -29,21 +22,31 @@
   </nav>
 </div>
 
+<div class="parallax5">
+  <div class="hero-text">
+    <h1>Quiz</h1>
+    <h3>Prabesh Chhetri - IT 3203</h3>
+  </div>
+</div>
+
 <section class="wrapper">
   <div class="quiz-container">
     <h3 style="text-align: center">Web Browser Assessment</h3>
-    <p style="text-align: center; margin-bottom: 30px;">See how much you remember from the History and Future sections!</p>
+    <p style="text-align: center; margin-bottom: 30px;">See how much you remember from the History and Future
+      sections!</p>
 
     <form id="browserQuiz">
 
       <div class="question-block">
-        <label class="question-text">1. The part of the browser that takes HTML and CSS code and turns it into a visual page is called the __________ Engine.</label>
+        <label class="question-text">1. The part of the browser that takes HTML and CSS code and turns it into a visual
+          page is called the __________ Engine.</label>
         <input type="text" id="q1" class="text-input" placeholder="Type your answer here...">
         <div id="feedback-q1" class="feedback"></div>
       </div>
 
       <div class="question-block">
-        <label class="question-text">2. Which browser was the first to show images "inline" (on the same page as text) in 1993?</label>
+        <label class="question-text">2. Which browser was the first to show images "inline" (on the same page as text)
+          in 1993?</label>
         <label class="options-label"><input type="radio" name="q2" value="WorldWideWeb"> WorldWideWeb</label>
         <label class="options-label"><input type="radio" name="q2" value="Mosaic"> NCSA Mosaic</label>
         <label class="options-label"><input type="radio" name="q2" value="Netscape"> Netscape Navigator</label>
@@ -61,7 +64,8 @@
       </div>
 
       <div class="question-block">
-        <label class="question-text">4. What technology allows modern browsers to run complex code (like C++ or Rust) at near-native desktop speeds?</label>
+        <label class="question-text">4. What technology allows modern browsers to run complex code (like C++ or Rust) at
+          near-native desktop speeds?</label>
         <label class="options-label"><input type="radio" name="q4" value="WebAssembly"> WebAssembly (Wasm)</label>
         <label class="options-label"><input type="radio" name="q4" value="WebGPU"> WebGPU</label>
         <label class="options-label"><input type="radio" name="q4" value="Sandboxing"> Sandboxing</label>
@@ -70,7 +74,8 @@
       </div>
 
       <div class="question-block">
-        <label class="question-text">5. Which of the following browsers are built using the Chromium engine today? (Select all that apply)</label>
+        <label class="question-text">5. Which of the following browsers are built using the Chromium engine today?
+          (Select all that apply)</label>
         <label class="options-label"><input type="checkbox" name="q5" value="Chrome"> Google Chrome</label>
         <label class="options-label"><input type="checkbox" name="q5" value="Edge"> Microsoft Edge</label>
         <label class="options-label"><input type="checkbox" name="q5" value="Safari"> Apple Safari</label>
@@ -95,7 +100,7 @@
     let totalScore = 0;
     const maxScore = 5;
 
-    //General function
+    //General function for giving feedback
     function setFeedback(elementId, isCorrect, correctText, scoreAwarded) {
       const feedbackDiv = document.getElementById(elementId);
       feedbackDiv.style.display = "block";
@@ -198,9 +203,11 @@
     });
   }
 </script>
+<script src="script.js"></script> <!-- Link to JS file !-->
 
 </body>
 <footer>
-  <p>This website is a class project for the <a href="https://ksuweb.github.io/IT3203/">Kennesaw State University IT 3203 course.</a></p>
+  <p>This website is a class project for the <a href="https://ksuweb.github.io/IT3203/">Kennesaw State University IT
+    3203 course.</a></p>
 </footer>
 </html>

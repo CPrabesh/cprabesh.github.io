@@ -7,28 +7,27 @@
   <title>IT3203 Project Prabesh Chhetri</title>
 </head>
 <body>
-<!--Title-->
-<div>
-  <header>
-    <h1>Future of Web Browsers</h1>
-    <h3>Prabesh Chhetri - IT 3203</h3>
-  </header>
-</div>
-
-<!--Navigation-->
+<!--Title & Nav-->
 <div id="nav">
   <nav>
-    <ul>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776; Menu</div>
+    <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="history.html">History</a></li>
       <li><a href="future.html">Future</a></li>
       <li><a href="aboutMe.html">About Me</a></li>
       <li><a href="references.html">References</a></li>
       <li><a href="quiz.html">Quiz</a></li>
-      </ul>
+    </ul>
   </nav>
 </div>
-<div class="parallax"></div>
+
+<div class="parallax">
+  <div class="hero-text">
+    <h1>Future of Web Browsers</h1>
+    <h3>Prabesh Chhetri - IT 3203</h3>
+  </div>
+</div>
 
 <div>
   <section class="wrapper">
@@ -37,51 +36,57 @@
       <div class="flex-item">
         <h3 style="text-align: center">Introduction</h3>
         <p>In the early 90s, using the internet meant looking at static blocks of grey text.
-          Today, we use that same window to edit 4K video, manage our bank accounts, and chat with AI. We’ve come a long way
-          from the days of Netscape Navigator, and the "web browser" has evolved into something much more powerful than a
+          Today, we use that same window to edit 4K video, manage our bank accounts, and chat with AI. We’ve come a long
+          way
+          from the days of Netscape Navigator, and the "web browser" has evolved into something much more powerful than
+          a
           simple tool for viewing websites. It’s now a complex arena where multi-billion dollar companies fight for our
-          attention and our data. But as browsers become more "invisible" and intuitive—handling everything from heavy 3D
+          attention and our data. But as browsers become more "invisible" and intuitive—handling everything from heavy
+          3D
           graphics to proactive security—they also face new risks, like the total dominance of a single engine.
           This look into the world of browsers explores how this tech actually works, how it won the "wars" of the past,
           and how it’s currently being reinvented by the rise of artificial intelligence.</p>
       </div>
 
       <div class="flex-item" style="text-align: center;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Google Chrome Logo" style="width: 200px; height: auto;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg"
+             alt="Google Chrome Logo" class="content-img" style="box-shadow: none;">
       </div>
 
     </div>
   </section>
 
-  <div class="parallax"></div>
+  <div class="parallax2"></div>
 
-  <section class="wrapper"> <!--Put this table in the history section-->
-    <h3 style="text-align: center">Major Browser Engines</h3>
-    <table>
-      <tr>
-        <th>Browser</th>
-        <th>Rendering Engine</th>
-        <th>JavaScript Interpreter</th>
-      </tr>
-      <tr>
-        <td>Google Chrome</td>
-        <td>Blink</td>
-        <td>V8</td>
-      </tr>
-      <tr>
-        <td>Mozilla Firefox</td>
-        <td>Gecko</td>
-        <td>SpiderMonkey</td>
-      </tr>
-      <tr>
-        <td>Apple Safari</td>
-        <td>WebKit</td>
-        <td>JavaScriptCore</td>
-      </tr>
-    </table>
+  <section class="wrapper">
+    <h3 style="text-align: center; margin-bottom: 15px;">Major Browser Engines</h3>
+    <div class="table-responsive">
+      <table>
+        <tr>
+          <th>Browser</th>
+          <th>Rendering Engine</th>
+          <th>JavaScript Interpreter</th>
+        </tr>
+        <tr>
+          <td>Google Chrome</td>
+          <td>Blink</td>
+          <td>V8</td>
+        </tr>
+        <tr>
+          <td>Mozilla Firefox</td>
+          <td>Gecko</td>
+          <td>SpiderMonkey</td>
+        </tr>
+        <tr>
+          <td>Apple Safari</td>
+          <td>WebKit</td>
+          <td>JavaScriptCore</td>
+        </tr>
+      </table>
+    </div>
   </section>
 
-  <div class="parallax"></div>
+  <div class="parallax3"></div>
 
   <section class="wrapper">
     <h3 style="text-align: center">Table of Contents</h3>
@@ -92,11 +97,13 @@
       <li><a href="references.html">References</a></li>
       <li><a href="quiz.html">Web Browser Quiz</a></li>
     </ul>
-  </section>
+  </section>ss
 </div>
+<script src="script.js"></script> <!-- Link to JS file !-->
 
-<footer>
-  <p>This website is a class project for the <a href="https://ksuweb.github.io/IT3203/">Kennesaw State University IT 3203 course.</a></p>
-</footer>
 </body>
+<footer>
+  <p>This website is a class project for the <a href="https://ksuweb.github.io/IT3203/">Kennesaw State University IT
+    3203 course.</a></p>
+</footer>
 </html>
